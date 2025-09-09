@@ -1,0 +1,40 @@
+*   Trying 76.76.21.22:443...
+* Connected to app.ghostspaysv1.com (76.76.21.22) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=app.ghostspaysv1.com
+*  start date: Mar 26 11:47:44 2025 GMT
+*  expire date: Jun 24 11:47:43 2025 GMT
+*  subjectAltName: host "app.ghostspaysv1.com" matched cert's "app.ghostspaysv1.com"
+*  issuer: C=US; O=Let's Encrypt; CN=R10
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x22bd250)
+> POST /api/v1/transaction.purchase HTTP/2
+Host: app.ghostspaysv1.com
+accept: */*
+authorization: 5847f369-4bd8-4f83-88cd-43fd5309bde2
+content-type: application/json
+content-length: 457
+
+* We are completely uploaded and fine
+* Connection state changed (MAX_CONCURRENT_STREAMS == 250)!
+< HTTP/2 500 
+< access-control-allow-origin: *
+< cache-control: public, max-age=0, must-revalidate
+< content-type: application/json
+< date: Thu, 22 May 2025 19:05:12 GMT
+< server: Vercel
+< strict-transport-security: max-age=63072000
+< x-matched-path: /api/v1/[...trpc]
+< x-vercel-cache: MISS
+< x-vercel-id: gru1::iad1::fx9n8-1747940710493-c36f0610217b
+< content-length: 73
+< 
+* Connection #0 to host app.ghostspaysv1.com left intact

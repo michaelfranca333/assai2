@@ -1,0 +1,2 @@
+{"nome":"Nome Aleat\u00f3rio","cpf":"12345678900","email":"teste@example.com","phone":"11999999999","type":"express","amount":2958}
+{"nome":"Nome Aleat\u00f3rio","cpf":"12345678900","email":"teste@example.com","phone":"11999999999","type":"express","amount":2958}

@@ -1,0 +1,29 @@
+:root {
+    --primary: #9903d6 !important;
+    --red: #ef4444;
+    --green: #27ae60;
+}
+
+.top-bar {
+    background-color: var(--primary) !important;
+}
+.button.primary{
+    background-color: var(--primary) !important;
+}
+.looking-for-offer-page{
+    background-color: var(--primary) !important;
+}
+
+.intro .headline[data-v-89cb6f88]{
+    color: var(--primary) !important;
+}
+
+.divider[data-v-b5121d9d]{
+    background-color: var(--primary) !important;
+}
+.custom-button{
+    background-color: var(--primary) !important;
+}
+.faq-item .question .icon[data-v-8c748230]{
+    color: var(--primary) !important;
+}

