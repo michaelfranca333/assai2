@@ -216,21 +216,22 @@ src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
         const data = await response.json();
         console.log('Dados recebidos da API:', data);
         
-        // Verifica se a resposta da API indica um erro
-        if (data.error || !data.nome) {
+        // Verifica se a resposta da API tem a estrutura esperada com 'dados'
+        if (!data.dados || !data.dados.nome) {
             throw new Error(data.message || "Dados não encontrados para o CPF informado.");
         }
         
         // Mapeia os dados para o formato esperado pelo frontend
+        // A API retorna os dados dentro de 'dados', então acessamos data.dados.campo
         return {
             error: false,
             message: 'Consulta realizada com sucesso.',
             data: {
-                'CPF_CONSULTADO': data.cpf || cpfNumerico,
-                'NOME': data.nome || '',
-                'SEXO': data.sexo || '',
-                'NASCIMENTO': data.nascimento || '',
-                'MAE': data.mae || ''
+                'CPF_CONSULTADO': data.dados.cpf || cpfNumerico,
+                'NOME': data.dados.nome || '',
+                'SEXO': data.dados.sexo || '',
+                'NASCIMENTO': data.dados.nascimento || '',
+                'MAE': data.dados.mae || ''
             }
         };
     }
