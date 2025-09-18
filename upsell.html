@@ -35,13 +35,15 @@
         }
 
         const upsell = localStorage.getItem("upsell");
-        let redirectUrl = "/up2";
+        let redirectUrl = "/up7";
         
-        if (upsell === "up3") redirectUrl = "/up3";
+        if (upsell === "up2") redirectUrl = "/up2";
+        else if (upsell === "up3") redirectUrl = "/up3";
         else if (upsell === "up1") redirectUrl = "/up1";
         else if (upsell === "up4") redirectUrl = "/up4";
         else if (upsell === "up5") redirectUrl = "/up5";
         else if (upsell === "up6") redirectUrl = "/up6";
+        
         //else if (upsell === "obg") redirectUrl = "/obg";
         
         window.location.href = redirectUrl + getQueryParams();
